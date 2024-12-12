@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function initializeTypingEffect() {
     const terminalContent = document.querySelector('.terminal-content .typing-text');
-    const text = `
-> const developer = {
+    const text = `> const developer = {
     name: "Lesley",
     title: "Software Engineer & Ethical Hacker",
     location: "The Netherlands",
@@ -42,8 +41,7 @@ function initializeTypingEffect() {
     mission: "Building secure, AI-powered solutions for tomorrow"
 };
 
-> console.log("Welcome to my digital workspace!");
-    `;
+> console.log("Welcome to my digital workspace!");`;
     
     terminalContent.textContent = text;
 }
