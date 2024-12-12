@@ -43,41 +43,41 @@ function initializeTypingEffect() {
 
 > console.log("Welcome to my digital workspace!");`;
 
-    // Split text into lines
+    // Split text into lines and prepare variables
     const lines = text.split('\n');
     let currentLine = 0;
-    let currentText = '';
-
+    let linePosition = 0;
+    let fullText = '';
+    
     // Clear terminal
     terminalContent.textContent = '';
     terminalContent.style.whiteSpace = 'pre-wrap';
     terminalContent.style.wordWrap = 'break-word';
 
     // Function to type a single character
-    function typeCharacter(line) {
-        if (currentText.length < line.length) {
-            currentText += line[currentText.length];
-            terminalContent.textContent = currentText;
-            setTimeout(() => typeCharacter(line), 25); // Adjust typing speed here
-        } else {
-            currentText = '';
-            currentLine++;
-            typeLine();
-        }
-    }
-
-    // Function to start typing a new line
-    function typeLine() {
+    function typeCharacter() {
         if (currentLine < lines.length) {
-            if (currentLine > 0) {
-                terminalContent.textContent += '\n';
+            const currentLineText = lines[currentLine];
+            
+            if (linePosition < currentLineText.length) {
+                // Add next character
+                fullText += currentLineText[linePosition];
+                terminalContent.textContent = fullText;
+                linePosition++;
+                setTimeout(typeCharacter, 25);
+            } else {
+                // Move to next line
+                fullText += '\n';
+                terminalContent.textContent = fullText;
+                currentLine++;
+                linePosition = 0;
+                setTimeout(typeCharacter, 100); // Slight pause between lines
             }
-            typeCharacter(lines[currentLine]);
         }
     }
 
     // Start typing
-    typeLine();
+    typeCharacter();
 }
 
 /**
