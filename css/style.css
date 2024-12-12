@@ -111,17 +111,24 @@ section {
     font-family: var(--font-mono);
     flex-grow: 1;
     overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
     font-size: 0.9rem;
     line-height: 1.5;
+    max-width: 100%;
+}
+
+.terminal-content pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    width: 100%;
+    margin: 0;
 }
 
 .typing-text {
     display: block;
     width: 100%;
-    white-space: pre-wrap;
-    word-wrap: break-word;
 }
 
 /* Ensure proper padding on mobile */

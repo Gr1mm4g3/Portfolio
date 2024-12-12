@@ -43,7 +43,10 @@ function initializeTypingEffect() {
 
 > console.log("Welcome to my digital workspace!");`;
     
+    // Set content and ensure proper wrapping
     terminalContent.textContent = text;
+    terminalContent.style.whiteSpace = 'pre-wrap';
+    terminalContent.style.wordWrap = 'break-word';
 }
 
 /**
