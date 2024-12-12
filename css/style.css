@@ -93,6 +93,9 @@ section {
     width: 100%;
     max-width: 800px;
     margin: 2rem auto;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 .terminal-header {
@@ -103,35 +106,35 @@ section {
     align-items: center;
 }
 
-.terminal-buttons {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.terminal-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ff5f56;
-}
-
-.terminal-buttons span:nth-child(2) {
-    background-color: #ffbd2e;
-}
-
-.terminal-buttons span:nth-child(3) {
-    background-color: #27c93f;
-}
-
-.terminal-title {
-    color: var(--text-secondary);
-    margin-left: 1rem;
-    font-size: 0.9rem;
-}
-
 .terminal-content {
     padding: 1.5rem;
     font-family: var(--font-mono);
+    flex-grow: 1;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.typing-text {
+    display: block;
+    width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Ensure proper padding on mobile */
+@media (max-width: 768px) {
+    .terminal-content {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .terminal-window {
+        margin: 1rem;
+        min-height: 300px;
+    }
 }
 
 /* Skills Grid Styles */
