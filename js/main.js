@@ -21,14 +21,28 @@ function initializeTypingEffect() {
     const terminalContent = document.querySelector('.terminal-content .typing-text');
     const text = `
 > const developer = {
-    name: "Your Name",
-    title: "Full Stack Developer",
-    location: "Earth",
-    skills: ["JavaScript", "Python", "React", "Node.js"],
-    passion: "Building awesome web experiences"
+    name: "Lesley",
+    title: "Software Engineer & Ethical Hacker",
+    location: "The Netherlands",
+    expertise: [
+        "Full Stack Development",
+        "AI Integration",
+        "Security Testing"
+    ],
+    stack: {
+        frontend: "NextJS",
+        backend: "Laravel",
+        passion: "AI & Security"
+    },
+    certifications: [
+        "Web Security Specialist",
+        "Server Security Specialist",
+        "Forensic Specialist"
+    ],
+    mission: "Building secure, AI-powered solutions for tomorrow"
 };
 
-> console.log("Welcome to my portfolio!");
+> console.log("Welcome to my digital workspace!");
     `;
     
     terminalContent.textContent = text;

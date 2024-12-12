@@ -134,6 +134,74 @@ section {
     font-family: var(--font-mono);
 }
 
+/* Skills Grid Styles */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.skill-category h3 {
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+}
+
+.skill-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+}
+
+.skill-item i {
+    color: var(--accent-primary);
+}
+
+/* Terminal Content Styles */
+.command {
+    color: var(--terminal-green);
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+}
+
+.certification-list {
+    list-style: none;
+    margin: 1rem 0;
+    padding-left: 1rem;
+}
+
+.certification-list li {
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+}
+
+/* About Content Styles */
+.about-content p {
+    margin: 1rem 0;
+    line-height: 1.8;
+}
+
 /* Cursor Animation */
 .cursor {
     animation: blink 1s infinite;
