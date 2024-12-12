@@ -42,11 +42,42 @@ function initializeTypingEffect() {
 };
 
 > console.log("Welcome to my digital workspace!");`;
-    
-    // Set content and ensure proper wrapping
-    terminalContent.textContent = text;
+
+    // Split text into lines
+    const lines = text.split('\n');
+    let currentLine = 0;
+    let currentText = '';
+
+    // Clear terminal
+    terminalContent.textContent = '';
     terminalContent.style.whiteSpace = 'pre-wrap';
     terminalContent.style.wordWrap = 'break-word';
+
+    // Function to type a single character
+    function typeCharacter(line) {
+        if (currentText.length < line.length) {
+            currentText += line[currentText.length];
+            terminalContent.textContent = currentText;
+            setTimeout(() => typeCharacter(line), 25); // Adjust typing speed here
+        } else {
+            currentText = '';
+            currentLine++;
+            typeLine();
+        }
+    }
+
+    // Function to start typing a new line
+    function typeLine() {
+        if (currentLine < lines.length) {
+            if (currentLine > 0) {
+                terminalContent.textContent += '\n';
+            }
+            typeCharacter(lines[currentLine]);
+        }
+    }
+
+    // Start typing
+    typeLine();
 }
 
 /**

@@ -124,11 +124,28 @@ section {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
     width: 100%;
     margin: 0;
+    display: inline;
 }
 
 .typing-text {
     display: block;
     width: 100%;
+}
+
+/* Terminal Cursor */
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-color: var(--accent-primary);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* Ensure proper padding on mobile */
