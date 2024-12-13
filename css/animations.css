@@ -5,8 +5,8 @@
 
 /* Cursor Blink Animation */
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent-primary); }
 }
 
 /* Typing Animation */
@@ -42,6 +42,82 @@
 @keyframes matrixRain {
     0% { transform: translateY(-100%); opacity: 1; }
     100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* Terminal Command Line Styles */
+.command-line {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-family: var(--font-mono);
+}
+
+.prompt {
+    color: var(--terminal-green);
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.typing-command {
+    position: relative;
+    display: inline-block;
+    white-space: pre;
+    overflow: hidden;
+    width: 0;
+    color: var(--text-primary);
+}
+
+.typing-command.typing {
+    border-right: 2px solid var(--accent-primary);
+    width: auto;
+    animation: blink-caret 1s step-end infinite;
+}
+
+.command-output {
+    color: var(--text-secondary);
+    margin: 10px 0 20px 0;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.5s ease-out;
+}
+
+.command-output.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Certification list styles */
+.certification-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.certification-list li {
+    margin: 5px 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease-out;
+}
+
+.certification-list.visible li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.certification-list.visible li:nth-child(1) { transition-delay: 0.1s; }
+.certification-list.visible li:nth-child(2) { transition-delay: 0.3s; }
+.certification-list.visible li:nth-child(3) { transition-delay: 0.5s; }
+
+/* Command animations */
+@keyframes typing-command {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent-primary); }
 }
 
 /* Animation Classes */
@@ -105,4 +181,60 @@
 
 .animated-link:hover::after {
     width: 100%;
+}
+
+/* Terminal Window Cyberpunk Hover Effect */
+.hero .terminal-window,
+.about .terminal-window {
+    position: relative;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.hero .terminal-window::before,
+.about .terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: linear-gradient(45deg,
+        #ff00ff,
+        #00ffff,
+        #ff00ff
+    );
+    background-size: 200% 200%;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero .terminal-window:hover,
+.about .terminal-window:hover {
+    transform: translateY(-2px);
+}
+
+.hero .terminal-window:hover::before,
+.about .terminal-window:hover::before {
+    opacity: 1;
+    animation: cyberpunkBorder 3s linear infinite;
+}
+
+@keyframes cyberpunkBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

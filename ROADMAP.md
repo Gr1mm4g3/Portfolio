@@ -1,0 +1,172 @@
+# Portfolio Website Development Roadmap
+
+This document outlines the development roadmap and styling guidelines for the portfolio website project, maintaining a cyberpunk/hacker aesthetic with a dark theme and neon accents.
+
+## Theme Analysis
+The website follows a cyberpunk/hacker aesthetic with:
+
+### Color Scheme
+- Primary Background: `#0a0a0a` (Deep black)
+- Secondary Background: `#1a1a1a` (Lighter black)
+- Primary Text: `#f0f0f0` (Off-white)
+- Primary Accent: `#0ff` (Cyan)
+- Secondary Accent: `#f0f` (Magenta)
+- Terminal Green: `#0f0` (Matrix green)
+
+### Typography
+- Main Font: 'Space Mono' (monospace)
+- Code Font: 'Fira Code' (monospace)
+
+### Design Elements
+- Terminal-style windows
+- Typing animations
+- Neon glow effects
+- Minimalist UI components
+- Command-line inspired navigation
+
+## Development Phases
+
+### Phase 1: Core Features Enhancement (Current Sprint)
+1. **Projects Section**
+   - Add project cards with terminal-style windows
+   - Include project screenshots/demos
+   - Add GitHub links and live demo buttons
+   - Implement project filtering by technology
+
+2. **Contact Form**
+   - Create terminal-styled contact form
+   - Add form validation
+   - Implement email functionality
+   - Add loading animations
+
+3. **Hero Section Enhancement**
+   - Expand typing animation content
+   - Add interactive terminal commands
+   - Implement "ls" command to show portfolio sections
+
+### Phase 2: Interactive Features (Next Sprint)
+1. **Terminal Emulator**
+   - Add working terminal commands
+   - Implement basic shell functionality
+   - Create Easter eggs through commands
+   - Add command history
+
+2. **Skills Visualization**
+   - Create interactive skill tree
+   - Add progress indicators
+   - Implement skill filtering
+   - Add hover animations
+
+3. **Portfolio Projects**
+   - Add project carousel
+   - Implement project detail modals
+   - Add live preview functionality
+   - Create project tags system
+
+### Phase 3: Advanced Features
+1. **Blog Section**
+   - Terminal-styled blog posts
+   - Code snippet highlighting
+   - Category filtering
+   - RSS feed
+
+2. **Experience Timeline**
+   - Interactive command-line timeline
+   - Animated transitions
+   - Detailed role descriptions
+   - Technology badges
+
+3. **Performance Optimization**
+   - Implement lazy loading
+   - Optimize images
+   - Add service worker
+   - Implement caching
+
+### Phase 4: Polish and Enhancement
+1. **Animations and Transitions**
+   - Smooth section transitions
+   - Terminal boot sequence
+   - Typing animations
+   - Hover effects
+
+2. **Accessibility**
+   - ARIA labels
+   - Keyboard navigation
+   - Screen reader optimization
+   - Color contrast compliance
+
+3. **Cross-browser Testing**
+   - Mobile responsiveness
+   - Browser compatibility
+   - Performance testing
+   - Security auditing
+
+## Styling Guide
+
+### Colors
+```css
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #f0f0f0;
+    --text-secondary: #888;
+    --accent-primary: #0ff;
+    --accent-secondary: #f0f;
+    --terminal-green: #0f0;
+}
+```
+
+### Typography
+- Headings: Space Mono, bold (700)
+- Body Text: Space Mono, regular (400)
+- Code: Fira Code, regular (400)
+- Terminal Text: Fira Code, medium (500)
+
+### Components
+
+#### Terminal Windows
+- Border-radius: 10px
+- Box-shadow: `0 0 20px rgba(0, 255, 255, 0.2)`
+- Header with mock buttons
+- Scrollable content area
+- Typing cursor animation
+
+#### Buttons
+- Minimal design
+- Hover glow effect
+- Terminal-style focus states
+- Command-line inspired hover states
+
+#### Cards
+- Dark background
+- Subtle hover elevation
+- Neon border on hover
+- Terminal window styling
+
+#### Forms
+- Terminal-style inputs
+- Command-line inspired validation
+- Glowing focus states
+- Animated submit buttons
+
+### Animation Guidelines
+- Use `cubic-bezier` for smooth transitions
+- Implement typing effects for text reveals
+- Add subtle hover animations
+- Use loading animations for async operations
+
+### Responsive Design
+- Mobile-first approach
+- Breakpoints:
+  - Mobile: < 768px
+  - Tablet: 768px - 1024px
+  - Desktop: > 1024px
+- Maintain terminal aesthetic across devices
+- Adjust terminal window sizes for mobile
+
+## Implementation Notes
+- Each phase builds upon the previous one
+- Focus on maintaining cyberpunk/hacker theme throughout
+- Ensure consistent user experience across all features
+- Regular testing and feedback implementation
+- Performance monitoring at each phase
