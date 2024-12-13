@@ -239,6 +239,72 @@
     }
 }
 
+/* Nav Links Animation */
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+@keyframes navLinkGlitch {
+    0%, 100% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+    20% {
+        transform: translate(-1px, 0);
+        text-shadow: 1px 0 var(--accent-primary);
+    }
+    40% {
+        transform: translate(1px, 0);
+        text-shadow: -1px 0 var(--accent-secondary);
+    }
+}
+
+.nav-links a:hover {
+    color: var(--accent-primary);
+    background: rgba(0, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    animation: navLinkGlitch 0.5s ease-in-out;
+}
+
+@keyframes borderPulse {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    50% {
+        width: 100%;
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        opacity: 0;
+    }
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        90deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover::before {
+    opacity: 1;
+    animation: borderPulse 1s ease-in-out;
+}
+
 /* Nav Brand Animation */
 @keyframes digitalDistortion {
     0% {
