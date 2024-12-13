@@ -95,7 +95,7 @@ console.log("Welcome to my digital workspace!");`;
  * Initializes scroll reveal animations for sections
  */
 function initializeScrollReveal() {
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section:not(#about)');  // Exclude about section
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -126,31 +126,36 @@ function initializeCursorBlink() {
  */
 function initializeAboutTerminal() {
     const commandLines = document.querySelectorAll('.command-line');
+    let isAnimating = false;
+    let hasRun = false;
 
     function typeCommand(command) {
         return new Promise(resolve => {
+            if (!command || command.classList.contains('typed')) {
+                resolve();
+                return;
+            }
+
             const text = command.textContent;
             command.textContent = '';
-            
-            // Start typing animation
+            command.style.width = '0';
             command.classList.add('typing');
             
             let charIndex = 0;
-            const typingSpeed = 75; // milliseconds per character
+            const typingSpeed = 75;
 
             function typeChar() {
                 if (charIndex < text.length) {
                     command.textContent += text[charIndex];
-                    // Set width based on content
                     command.style.width = command.scrollWidth + 'px';
                     charIndex++;
                     setTimeout(typeChar, typingSpeed);
                 } else {
-                    // Remove typing animation after completion
                     setTimeout(() => {
                         command.classList.remove('typing');
+                        command.classList.add('typed');
                         resolve();
-                    }, 500);
+                    }, 300);  
                 }
             }
 
@@ -160,45 +165,57 @@ function initializeAboutTerminal() {
 
     function showOutput(output) {
         return new Promise(resolve => {
-            output.classList.add('visible');
-            
-            if (output.classList.contains('certification-list')) {
-                setTimeout(resolve, 1200);
-            } else {
-                setTimeout(resolve, 800);
+            if (!output || output.classList.contains('visible')) {
+                resolve();
+                return;
             }
+
+            setTimeout(() => {
+                output.classList.add('visible');
+                
+                if (output.classList.contains('certification-list')) {
+                    setTimeout(resolve, 1000);  
+                } else {
+                    setTimeout(resolve, 600);  
+                }
+            }, 200);  
         });
     }
 
     async function processCommandPair(index) {
-        if (index >= commandLines.length) return;
+        if (index >= commandLines.length) {
+            isAnimating = false;
+            hasRun = true;
+            return;
+        }
 
         const commandLine = commandLines[index];
         const command = commandLine.querySelector('.typing-command');
         const output = commandLine.nextElementSibling;
 
-        if (!command || !output) return;
+        if (!command || !output) {
+            isAnimating = false;
+            hasRun = true;
+            return;
+        }
 
-        // Type the command
         await typeCommand(command);
-
-        // Show and wait for the output
         await showOutput(output);
-
-        // Add delay before next command
-        await new Promise(resolve => setTimeout(resolve, 500));
-
-        // Process next command pair
+        await new Promise(resolve => setTimeout(resolve, 300));  
         await processCommandPair(index + 1);
     }
 
-    // Start animations when about section is in view
     const aboutSection = document.querySelector('#about');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                processCommandPair(0);
+            if (entry.isIntersecting && !isAnimating && !hasRun) {
+                isAnimating = true;
+                processCommandPair(0).catch(() => {
+                    isAnimating = false;
+                    hasRun = true;
+                });
                 observer.unobserve(entry.target);
+                observer.disconnect();
             }
         });
     }, { threshold: 0.3 });

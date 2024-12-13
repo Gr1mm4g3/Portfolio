@@ -144,6 +144,11 @@ section {
     white-space: pre-wrap;
     word-wrap: break-word;
     font-family: var(--font-mono);
+    position: relative;
+}
+
+.terminal-content pre::after {
+    content: none;
 }
 
 .terminal-content code {
@@ -158,14 +163,13 @@ section {
 }
 
 /* Terminal Cursor */
-.terminal-cursor {
+.cursor {
     display: inline-block;
     width: 8px;
-    height: 15px;
+    height: 1.2em;
     background-color: var(--accent-primary);
-    animation: blink 1s step-end infinite;
-    vertical-align: middle;
     margin-left: 2px;
+    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
@@ -308,12 +312,6 @@ section {
 .about-content p {
     margin: 1rem 0;
     line-height: 1.8;
-}
-
-/* Cursor Animation */
-.cursor {
-    animation: blink 1s infinite;
-    color: var(--accent-primary);
 }
 
 /* Footer Styles */

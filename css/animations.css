@@ -5,14 +5,14 @@
 
 /* Cursor Blink Animation */
 @keyframes blink {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--accent-primary); }
+    from, to { background-color: transparent }
+    50% { background-color: var(--accent-primary); }
 }
 
 /* Typing Animation */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from { width: 0 }
+    to { width: 100% }
 }
 
 /* Glow Effect Animation */
@@ -24,8 +24,8 @@
 
 /* Fade In Animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Glitch Effect */
@@ -50,6 +50,8 @@
     align-items: center;
     margin: 10px 0;
     font-family: var(--font-mono);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
 .prompt {
@@ -63,14 +65,17 @@
     display: inline-block;
     white-space: pre;
     overflow: hidden;
-    width: 0;
     color: var(--text-primary);
+    visibility: hidden;  /* Hide untyped commands */
+}
+
+.typing-command.typing,
+.typing-command.typed {
+    visibility: visible;  /* Show during and after typing */
 }
 
 .typing-command.typing {
     border-right: 2px solid var(--accent-primary);
-    width: auto;
-    animation: blink-caret 1s step-end infinite;
 }
 
 .command-output {
@@ -79,12 +84,79 @@
     line-height: 1.6;
     opacity: 0;
     transform: translateY(-5px);
-    transition: all 0.5s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    visibility: hidden;  /* Hide output by default */
 }
 
 .command-output.visible {
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;  /* Show output when visible class is added */
+}
+
+.second-command {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.second-output {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 3s;
+}
+
+.second-command .typing-command {
+    animation-delay: 2s;
+}
+
+/* About Section Command Animations */
+.command-line {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.typing-command {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.typing-command::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 1.2em;
+    background-color: var(--accent-primary);
+    animation: blink 1s step-end infinite;
+    animation-delay: 1s;
+}
+
+.command-output {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.second-command {
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+}
+
+.second-command .typing-command {
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+}
+
+.second-output {
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
 }
 
 /* Certification list styles */
@@ -116,8 +188,8 @@
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--accent-primary); }
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
 }
 
 /* Animation Classes */
@@ -306,44 +378,6 @@
 }
 
 /* Nav Brand Animation */
-@keyframes digitalDistortion {
-    0% {
-        clip-path: inset(0 0 0 0);
-        transform: translate(0);
-        text-shadow: none;
-    }
-    20% {
-        clip-path: inset(0 0 0 0);
-        transform: translate(-2px);
-        text-shadow: 2px 0 var(--accent-secondary);
-    }
-    21% {
-        clip-path: inset(20% 0 15% 0);
-        transform: translate(2px);
-        text-shadow: -2px 0 var(--accent-secondary);
-    }
-    49% {
-        clip-path: inset(0 0 0 0);
-        transform: translate(0);
-        text-shadow: none;
-    }
-    50% {
-        clip-path: inset(40% 0 40% 0);
-        transform: translate(1px);
-        text-shadow: -1px 0 var(--accent-secondary), 1px 0 var(--terminal-green);
-    }
-    51% {
-        clip-path: inset(0 0 0 0);
-        transform: translate(-1px);
-        text-shadow: 1px 0 var(--accent-secondary);
-    }
-    100% {
-        clip-path: inset(0 0 0 0);
-        transform: translate(0);
-        text-shadow: none;
-    }
-}
-
 .nav-brand {
     position: relative;
     display: flex;
@@ -351,17 +385,39 @@
     cursor: pointer;
 }
 
+@keyframes navBrandHover {
+    0% {
+        text-shadow: none;
+    }
+    20% {
+        text-shadow: 2px 0 var(--accent-secondary),
+                    -2px 0 var(--accent-primary);
+    }
+    40% {
+        text-shadow: none;
+    }
+    60% {
+        text-shadow: -2px 0 var(--accent-secondary),
+                    2px 0 var(--accent-primary);
+    }
+    80% {
+        text-shadow: none;
+    }
+    100% {
+        text-shadow: none;
+    }
+}
+
 .nav-brand:hover .brand-text {
-    animation: digitalDistortion 2s steps(1) infinite;
+    animation: navBrandHover 0.5s ease-in-out;
 }
 
 .nav-brand .brand-text {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid var(--accent-primary);
-    animation: typing 1s steps(8), blink 1s step-end infinite;
-    animation-delay: 0s, 1s;
+    animation: typing 1s steps(8);
+    animation-fill-mode: forwards;
     margin-left: 8px;
     color: var(--accent-primary);
 }
