@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function initializeTypingEffect() {
     const terminalContent = document.querySelector('.terminal-content .typing-text');
-    const text = `> const developer = {
+    const code = `const developer = {
     name: "Lesley",
     title: "Software Engineer & Ethical Hacker",
     location: "The Netherlands",
@@ -41,43 +41,51 @@ function initializeTypingEffect() {
     mission: "Building secure, AI-powered solutions for tomorrow"
 };
 
-> console.log("Welcome to my digital workspace!");`;
+console.log("Welcome to my digital workspace!");`;
 
     // Split text into lines and prepare variables
-    const lines = text.split('\n');
+    const lines = code.split('\n');
     let currentLine = 0;
-    let linePosition = 0;
-    let fullText = '';
+    let currentText = '';
     
     // Clear terminal
     terminalContent.textContent = '';
-    terminalContent.style.whiteSpace = 'pre-wrap';
-    terminalContent.style.wordWrap = 'break-word';
 
-    // Function to type a single character
-    function typeCharacter() {
-        if (currentLine < lines.length) {
-            const currentLineText = lines[currentLine];
+    // Function to highlight code
+    function highlightCode(text) {
+        return Prism.highlight(text, Prism.languages.javascript, 'javascript');
+    }
+
+    // Function to type characters one by one
+    function typeCharacter(line, index = 0) {
+        if (index <= line.length) {
+            currentText += line[index - 1] || '';
+            terminalContent.innerHTML = highlightCode(currentText);
             
-            if (linePosition < currentLineText.length) {
-                // Add next character
-                fullText += currentLineText[linePosition];
-                terminalContent.textContent = fullText;
-                linePosition++;
-                setTimeout(typeCharacter, 25);
+            if (index < line.length) {
+                setTimeout(() => typeCharacter(line, index + 1), 50); // Slower character typing (50ms)
             } else {
-                // Move to next line
-                fullText += '\n';
-                terminalContent.textContent = fullText;
+                currentText += '\n';
                 currentLine++;
-                linePosition = 0;
-                setTimeout(typeCharacter, 100); // Slight pause between lines
+                setTimeout(typeLine, 750); // Longer pause between lines (750ms)
             }
         }
     }
 
-    // Start typing
-    typeCharacter();
+    // Function to start typing a new line
+    function typeLine() {
+        if (currentLine < lines.length) {
+            // Add the prompt at the start of specific lines
+            if (currentLine === 0 || currentLine === lines.length - 1) {
+                currentText += '> ';
+            }
+            
+            typeCharacter(lines[currentLine]);
+        }
+    }
+
+    // Start typing with an initial delay
+    setTimeout(typeLine, 500);
 }
 
 /**

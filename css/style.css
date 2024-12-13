@@ -13,6 +13,16 @@
     --accent-secondary: #f0f;
     --terminal-green: #0f0;
     
+    /* Syntax Highlighting Colors */
+    --syntax-keyword: #ff79c6;
+    --syntax-string: #f1fa8c;
+    --syntax-number: #bd93f9;
+    --syntax-function: #50fa7b;
+    --syntax-operator: #ff79c6;
+    --syntax-comment: #6272a4;
+    --syntax-property: #8be9fd;
+    --syntax-bracket: #f8f8f2;
+    
     /* Font Variables */
     --font-mono: 'Fira Code', monospace;
     --font-main: 'Space Mono', monospace;
@@ -127,6 +137,21 @@ section {
     display: inline;
 }
 
+.terminal-content pre {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: var(--font-mono);
+}
+
+.terminal-content code {
+    font-family: var(--font-mono) !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
 .typing-text {
     display: block;
     width: 100%;
@@ -146,6 +171,28 @@ section {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Adjust token colors to match our theme */
+.token.keyword {
+    color: var(--accent-primary) !important;
+}
+
+.token.string {
+    color: var(--terminal-green) !important;
+}
+
+.token.function {
+    color: var(--accent-secondary) !important;
+}
+
+.token.operator {
+    color: var(--text-primary) !important;
+}
+
+/* Terminal prompt style */
+.terminal-content pre::before {
+    color: var(--accent-primary);
 }
 
 /* Ensure proper padding on mobile */
@@ -203,6 +250,40 @@ section {
 
 .skill-item i {
     color: var(--accent-primary);
+}
+
+/* Syntax Highlighting */
+.syntax-keyword {
+    color: var(--syntax-keyword);
+}
+
+.syntax-string {
+    color: var(--syntax-string);
+}
+
+.syntax-number {
+    color: var(--syntax-number);
+}
+
+.syntax-function {
+    color: var(--syntax-function);
+}
+
+.syntax-operator {
+    color: var(--syntax-operator);
+}
+
+.syntax-comment {
+    color: var(--syntax-comment);
+    font-style: italic;
+}
+
+.syntax-property {
+    color: var(--syntax-property);
+}
+
+.syntax-bracket {
+    color: var(--syntax-bracket);
 }
 
 /* Terminal Content Styles */
