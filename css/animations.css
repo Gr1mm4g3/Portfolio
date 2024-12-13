@@ -238,3 +238,68 @@
         background-position: 0% 50%;
     }
 }
+
+/* Nav Brand Animation */
+@keyframes digitalDistortion {
+    0% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        text-shadow: none;
+    }
+    20% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(-2px);
+        text-shadow: 2px 0 var(--accent-secondary);
+    }
+    21% {
+        clip-path: inset(20% 0 15% 0);
+        transform: translate(2px);
+        text-shadow: -2px 0 var(--accent-secondary);
+    }
+    49% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        text-shadow: none;
+    }
+    50% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(1px);
+        text-shadow: -1px 0 var(--accent-secondary), 1px 0 var(--terminal-green);
+    }
+    51% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(-1px);
+        text-shadow: 1px 0 var(--accent-secondary);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        text-shadow: none;
+    }
+}
+
+.nav-brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-brand:hover .brand-text {
+    animation: digitalDistortion 2s steps(1) infinite;
+}
+
+.nav-brand .brand-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--accent-primary);
+    animation: typing 1s steps(8), blink 1s step-end infinite;
+    animation-delay: 0s, 1s;
+    margin-left: 8px;
+    color: var(--accent-primary);
+}
+
+.terminal-prompt {
+    color: var(--terminal-green);
+}
