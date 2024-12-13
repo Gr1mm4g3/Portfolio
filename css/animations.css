@@ -96,8 +96,13 @@
 
 .second-command {
     opacity: 0;
+    visibility: hidden;  /* Hide second command by default */
+}
+
+.second-command.ready {
+    opacity: 1;
+    visibility: visible;
     animation: fadeIn 0.5s ease-out forwards;
-    animation-delay: 2s;
 }
 
 .second-output {

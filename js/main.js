@@ -199,9 +199,25 @@ function initializeAboutTerminal() {
             return;
         }
 
+        // If this is the second command, wait for it to be ready
+        if (commandLine.classList.contains('second-command')) {
+            await new Promise(resolve => setTimeout(resolve, 300));
+            commandLine.classList.add('ready');
+        }
+
         await typeCommand(command);
         await showOutput(output);
-        await new Promise(resolve => setTimeout(resolve, 300));  
+
+        // If this is the first command, prepare the second command
+        if (index === 0) {
+            const secondCommand = document.querySelector('.second-command');
+            if (secondCommand) {
+                await new Promise(resolve => setTimeout(resolve, 300));
+                secondCommand.classList.add('ready');
+            }
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 300));
         await processCommandPair(index + 1);
     }
 
