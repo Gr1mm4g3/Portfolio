@@ -105,10 +105,8 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add hover animations
 
 2. **Portfolio Projects**
-   - [ ] Add project carousel
+   - [x] Add project carousel
    - [x] Implement project detail modals
-   - [ ] Add live preview functionality
-   - [ ] Create project tags system
    - [x] Remove project filters for cleaner UI
 
 ### Phase 3: Advanced Features

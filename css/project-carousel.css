@@ -1,0 +1,124 @@
+/* Project Carousel Styles */
+.project-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 2rem;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    opacity: 0.7;
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+}
+
+.carousel-item[aria-current="true"] {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.carousel-btn {
+    background: var(--bg-secondary);
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px var(--accent-primary);
+}
+
+.carousel-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-secondary);
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--accent-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-indicator:hover {
+    background: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-primary);
+}
+
+.carousel-indicator.active {
+    background: var(--accent-primary);
+    box-shadow: 0 0 15px var(--accent-primary);
+}
+
+/* Animation for slide transitions */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.95);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel-nav {
+        gap: 1rem;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-indicator {
+        width: 8px;
+        height: 8px;
+    }
+}
