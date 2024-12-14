@@ -1,0 +1,87 @@
+/* Lazy Loading Styles */
+
+/* Image loading animation */
+img.loading {
+    position: relative;
+    min-height: 100px;
+    background: var(--bg-secondary);
+}
+
+img.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid var(--accent-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Error state for failed images */
+img.error {
+    position: relative;
+    min-height: 100px;
+    background: var(--bg-secondary);
+}
+
+img.error::after {
+    content: '!';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--accent-secondary);
+}
+
+/* Section loading animation */
+.data-lazy {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.data-lazy.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading animations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Skeleton loading animation */
+.skeleton-loading {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.skeleton-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 255, 255, 0.1),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
