@@ -92,10 +92,10 @@ The website follows a cyberpunk/hacker aesthetic with:
 
 8. **Performance & SEO**
    - [ ] Optimize images and assets
-   - [ ] Add meta tags for SEO
-   - [ ] Implement lazy loading
-   - [ ] Add Open Graph tags
-   - [ ] Create sitemap.xml
+   - [x] Add meta tags for SEO
+   - [x] Implement lazy loading
+   - [x] Add Open Graph tags
+   - [x] Create sitemap.xml
 
 9. **Additional Features**
    - [ ] Add dark/light theme toggle
