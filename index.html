@@ -141,10 +141,39 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact">
         <h2 class="section-title">Contact</h2>
-        <div class="contact-content">
-            <!-- Contact form will be added here -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-button close"></span>
+                    <span class="terminal-button minimize"></span>
+                    <span class="terminal-button maximize"></span>
+                </div>
+                <div class="terminal-title">contact.sh</div>
+            </div>
+            <div class="terminal-content">
+                <form id="contact-form" class="terminal-form">
+                    <div class="form-group">
+                        <label for="name">$ echo $NAME:</label>
+                        <input type="text" id="name" name="name" required placeholder="_">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">$ echo $EMAIL:</label>
+                        <input type="email" id="email" name="email" required placeholder="_">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">$ cat message.txt:</label>
+                        <textarea id="message" name="message" required placeholder="_"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="terminal-prompt">$</span> ./send_message.sh
+                    </button>
+                </form>
+                <div id="form-response" class="hidden">
+                    <pre><code class="response-message"></code></pre>
+                </div>
+            </div>
         </div>
     </section>
 

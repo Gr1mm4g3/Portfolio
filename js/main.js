@@ -15,6 +15,47 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // About section terminal animations
     initializeAboutTerminal();
+
+    // Contact Form Handling
+    const contactForm = document.getElementById('contact-form');
+    const formResponse = document.getElementById('form-response');
+    const responseMessage = formResponse.querySelector('.response-message');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="terminal-prompt">$</span> Processing...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with actual form handling)
+            try {
+                // Add actual form submission logic here
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Show success message
+                formResponse.classList.remove('hidden', 'error');
+                formResponse.classList.add('success');
+                responseMessage.textContent = '✓ Message sent successfully! I will get back to you soon.';
+                contactForm.reset();
+            } catch (error) {
+                // Show error message
+                formResponse.classList.remove('hidden', 'success');
+                formResponse.classList.add('error');
+                responseMessage.textContent = '✗ Error sending message. Please try again.';
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Scroll response into view
+                formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    }
 });
 
 /**
