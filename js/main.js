@@ -59,6 +59,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize particle effect
     initializeParticleEffect();
+
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinksAnchors = document.querySelectorAll('.nav-links a');
+
+    // Toggle mobile menu
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinksAnchors.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            !e.target.closest('.nav-links') && 
+            !e.target.closest('.mobile-menu-btn') && 
+            navLinks.classList.contains('active')) {
+            mobileMenuBtn.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+
+    // Prevent scrolling when menu is open
+    document.body.addEventListener('touchmove', (e) => {
+        if (document.body.classList.contains('menu-open')) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 });
 
 /**
