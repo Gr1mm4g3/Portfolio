@@ -34,21 +34,22 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Interactive nav links with glitch animations
    - [x] Terminal-style command prompt
    - [x] Active state with glowing underline effect
-   - [ ] Mobile menu animation
+   - [x] Mobile menu animation
 
 2. **About Section**
    - [x] Terminal-style window design
    - [x] Sequential command typing animation
    - [x] Smooth command output transitions
    - [x] Fix animation timing and visibility issues
-   - [ ] ~~Add more interactive commands~~ (Moved to new Terminal Emulator section)
+   - [x] Simplify terminal window hover effects
 
 3. **Visual Effects**
    - [x] Particle system background
    - [x] Network connection lines
    - [x] Dynamic canvas resizing
    - [x] Optimized particle animations
-   - [ ] Particle interaction with cursor
+   - [x] Particle interaction with cursor
+   - [x] Fix z-index and interaction issues
 
 4. **Footer Enhancement**
    - [x] Add copyright information
@@ -62,9 +63,11 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add GitHub links and live demo buttons
    - [x] Implement hover animations and effects
    - [x] Add cybersecurity project examples
-   - [ ] Add real project screenshots/demos
-   - [ ] Connect to actual GitHub repositories
+   - [x] Add real project screenshots/demos
+   - [x] Connect to actual GitHub repositories
    - [ ] Implement project filtering by technology
+   - [x] Add portfolio as first real project
+   - [x] Add portfolio screenshot
 
 6. **Contact Form**
    - [x] Create terminal-styled contact form
