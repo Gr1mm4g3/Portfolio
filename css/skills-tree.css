@@ -1,0 +1,119 @@
+/* Skills Tree Styles */
+.skills-tree-container {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.skill-node {
+    position: relative;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.skill-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--accent-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.skill-content:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border-color: var(--accent-secondary);
+}
+
+.skill-name {
+    color: var(--text-primary);
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.skill-progress {
+    height: 4px;
+    width: 100px;
+    background: var(--bg-primary);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress);
+    background: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-primary);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.skill-children {
+    margin-left: 2rem;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.skill-node.expanded > .skill-children {
+    height: auto;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+.skill-node.has-children > .skill-content::before {
+    content: '>';
+    position: absolute;
+    left: -1.5rem;
+    color: var(--accent-primary);
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.skill-node.has-children.expanded > .skill-content::before {
+    transform: rotate(90deg);
+}
+
+.skill-connection {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.skill-connection path {
+    fill: none;
+    stroke: var(--accent-primary);
+    stroke-width: 2;
+    opacity: 0.5;
+    stroke-dasharray: 5, 5;
+    animation: dash 20s linear infinite;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--accent-primary);
+    }
+    to {
+        box-shadow: 0 0 20px var(--accent-primary);
+    }
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 1000;
+    }
+}

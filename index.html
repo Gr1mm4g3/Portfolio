@@ -42,6 +42,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/skills-tree.css">
 </head>
 <body>
     <div class="particle-container">
@@ -130,58 +131,15 @@
             <h2 class="section-title">Skills</h2>
             <div class="terminal-window">
                 <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <div class="terminal-title">skills.json</div>
                 </div>
                 <div class="terminal-content">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>Offensive Security</h3>
-                            <ul class="skill-list">
-                                <li><i class="fas fa-shield-alt"></i> Penetration Testing</li>
-                                <li><i class="fas fa-bug"></i> Vulnerability Assessment</li>
-                                <li><i class="fas fa-code"></i> Exploit Development</li>
-                                <li><i class="fas fa-search"></i> OSINT</li>
-                                <li><i class="fas fa-network-wired"></i> Network Security</li>
-                                <li><i class="fas fa-mobile-alt"></i> Mobile App Security</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>Defensive Security</h3>
-                            <ul class="skill-list">
-                                <li><i class="fas fa-virus-slash"></i> Malware Analysis</li>
-                                <li><i class="fas fa-file-signature"></i> Digital Forensics</li>
-                                <li><i class="fas fa-chart-line"></i> SIEM Management</li>
-                                <li><i class="fas fa-fingerprint"></i> Threat Hunting</li>
-                                <li><i class="fas fa-shield-virus"></i> Incident Response</li>
-                                <li><i class="fas fa-lock"></i> Access Control</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>Development</h3>
-                            <ul class="skill-list">
-                                <li><i class="fab fa-python"></i> Python</li>
-                                <li><i class="fab fa-rust"></i> Rust</li>
-                                <li><i class="fab fa-js"></i> JavaScript/TypeScript</li>
-                                <li><i class="fab fa-react"></i> React/Vue.js</li>
-                                <li><i class="fab fa-docker"></i> Docker</li>
-                                <li><i class="fab fa-aws"></i> AWS/Cloud</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>Tools & Technologies</h3>
-                            <ul class="skill-list">
-                                <li><i class="fas fa-terminal"></i> Kali Linux</li>
-                                <li><i class="fas fa-network-wired"></i> Wireshark</li>
-                                <li><i class="fas fa-bug"></i> Burp Suite</li>
-                                <li><i class="fas fa-code-branch"></i> Git</li>
-                                <li><i class="fas fa-database"></i> SQL/NoSQL</li>
-                                <li><i class="fas fa-server"></i> CI/CD</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div id="skills-tree" class="skills-tree-container"></div>
                 </div>
             </div>
         </section>
@@ -189,12 +147,6 @@
         <!-- Projects Section -->
         <section id="projects" class="projects">
             <h2 class="section-title">Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="HTML5">HTML5</button>
-                <button class="filter-btn" data-filter="CSS3">CSS3</button>
-                <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
-            </div>
             <div class="project-grid">
                 <div class="terminal-window">
                     <div class="terminal-header">
@@ -289,6 +241,7 @@
 
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/skills-tree.js"></script>
 
     <!-- Prism JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

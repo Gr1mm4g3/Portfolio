@@ -99,21 +99,17 @@ The website follows a cyberpunk/hacker aesthetic with:
 
 ### Phase 2: Interactive Features (Next Sprint)
 1. **Skills Visualization**
-   - [ ] Create interactive skill tree
-   - [ ] Add progress indicators
-   - [ ] Implement skill filtering
-   - [ ] Add hover animations
+   - [x] Create interactive skill tree
+   - [x] Add progress indicators
+   - [x] Implement skill filtering
+   - [x] Add hover animations
 
 2. **Portfolio Projects**
    - [ ] Add project carousel
    - [ ] Implement project detail modals
    - [ ] Add live preview functionality
    - [ ] Create project tags system
-
-3. **Cross-browser Testing**
-   - [ ] Mobile responsiveness
-   - [ ] Browser compatibility
-   - [ ] Performance testing
+   - [x] Remove project filters for cleaner UI
 
 ### Phase 3: Advanced Features
 1. **Experience Timeline**
