@@ -162,9 +162,23 @@ section {
     transition: all 0.3s ease;
 }
 
-.terminal-window:hover {
+/* Terminal Window Cyberpunk Hover Effect */
+.hero .terminal-window,
+.about .terminal-window,
+.projects .terminal-window,
+.contact .terminal-window {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.hero .terminal-window:hover,
+.about .terminal-window:hover,
+.projects .terminal-window:hover,
+.contact .terminal-window:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.6);
 }
 
 .terminal-header {
