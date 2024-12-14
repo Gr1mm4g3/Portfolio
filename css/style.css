@@ -12,6 +12,8 @@
     --accent-primary: #0ff;
     --accent-secondary: #f0f;
     --terminal-green: #0f0;
+    --neon-blue: #03A9F4;
+    --neon-pink: #FF69B4;
     
     /* Syntax Highlighting Colors */
     --syntax-keyword: #ff79c6;
@@ -62,9 +64,40 @@ body {
 }
 
 .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
     font-family: var(--font-mono);
     font-size: 1.5rem;
     color: var(--accent-primary);
+}
+
+.nav-brand a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-brand a:hover {
+    color: var(--accent-secondary);
+}
+
+.nav-brand .fa-github {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand a:hover .fa-github {
+    transform: rotate(360deg);
+}
+
+.brand-text {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
 }
 
 .terminal-prompt {
@@ -310,6 +343,72 @@ section {
         margin: 1rem;
         min-height: 300px;
     }
+}
+
+/* Projects Section Styles */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.projects .terminal-window {
+    height: 100%;
+    min-height: 300px;
+}
+
+.projects .terminal-content {
+    padding: 1.5rem;
+}
+
+.projects h3 {
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.projects p {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-stack span {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--neon-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links .btn {
+    background: transparent;
+    color: var(--neon-pink);
+    border: 1px solid var(--neon-pink);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-links .btn:hover {
+    background: rgba(255, 0, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 /* Skills Grid Styles */
