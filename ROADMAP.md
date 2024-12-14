@@ -41,7 +41,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Sequential command typing animation
    - [x] Smooth command output transitions
    - [x] Fix animation timing and visibility issues
-   - [ ] ~~Add more interactive commands~~ (Moved to new Terminal Emulator section)
+   - [x] Simplify terminal window hover effects
 
 3. **Visual Effects**
    - [x] Particle system background
@@ -49,6 +49,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Dynamic canvas resizing
    - [x] Optimized particle animations
    - [x] Particle interaction with cursor
+   - [x] Fix z-index and interaction issues
 
 4. **Footer Enhancement**
    - [x] Add copyright information

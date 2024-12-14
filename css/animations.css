@@ -260,39 +260,14 @@
     width: 100%;
 }
 
-/* Terminal Window Cyberpunk Hover Effect */
+/* Terminal Window Hover Effect */
 .hero .terminal-window,
 .about .terminal-window,
-.skills .terminal-window,{
+.skills .terminal-window,
+.projects .terminal-window {
     position: relative;
     transition: transform 0.3s ease;
     border: 1px solid rgba(0, 255, 255, 0.1);
-}
-
-.hero .terminal-window::before,
-.about .terminal-window::before,
-.projects .terminal-window::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    background: linear-gradient(45deg,
-        #ff00ff,
-        #00ffff,
-        #ff00ff
-    );
-    background-size: 200% 200%;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
 .hero .terminal-window:hover,
@@ -300,26 +275,6 @@
 .projects .terminal-window:hover,
 .skills .terminal-window:hover {
     transform: translateY(-2px);
-}
-
-.hero .terminal-window:hover::before,
-.about .terminal-window:hover::before,
-.projects .terminal-window:hover::before,
-.skills .terminal-window:hover::before {
-    opacity: 1;
-    animation: cyberpunkBorder 3s linear infinite;
-}
-
-@keyframes cyberpunkBorder {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 /* Nav Links Animation */
