@@ -23,52 +23,36 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <canvas id="particleCanvas"></canvas>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-brand">
-            <a href="https://github.com/Gr1mm4g3" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-                <span class="brand-text">Gr1mm4g3</span>
-            </a>
-        </div>
-        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="particle-container">
+        <canvas id="particleCanvas"></canvas>
+    </div>
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="https://github.com/Gr1mm4g3" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    <span class="brand-text">Gr1mm4g3</span>
+                </a>
             </div>
-        </button>
-        <div class="nav-links">
-            <a href="#home" data-text="~/home">~/home</a>
-            <a href="#about" data-text="~/about">~/about</a>
-            <a href="#skills" data-text="~/skills">~/skills</a>
-            <a href="#projects" data-text="~/projects">~/projects</a>
-            <a href="#contact" data-text="~/contact">~/contact</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <div class="menu-icon">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <div class="terminal-title">portfolio.sh</div>
+            </button>
+            <div class="nav-links">
+                <a href="#home" data-text="~/home">~/home</a>
+                <a href="#about" data-text="~/about">~/about</a>
+                <a href="#skills" data-text="~/skills">~/skills</a>
+                <a href="#projects" data-text="~/projects">~/projects</a>
+                <a href="#contact" data-text="~/contact">~/contact</a>
             </div>
-            <div class="terminal-content">
-                <pre class="typing-text language-javascript"><span class="cursor"></span></pre>
-            </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2 class="section-title">About</h2>
-        <div class="about-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
             <div class="terminal-window">
                 <div class="terminal-header">
                     <div class="terminal-buttons">
@@ -76,261 +60,281 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <div class="terminal-title">about.sh</div>
+                    <div class="terminal-title">portfolio.sh</div>
                 </div>
                 <div class="terminal-content">
-                    <div class="command-line">
-                        <span class="prompt">gr1mm4g3@portfolio:~$</span>
-                        <span class="typing-command">cat profile.txt</span>
+                    <pre class="typing-text language-javascript"><span class="cursor"></span></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-title">about.sh</div>
                     </div>
-                    <div class="command-output">
-                        Full Stack Developer and Certified Ethical Hacker based in The Netherlands. Specializing in secure application development with modern frameworks like NextJS and Laravel, while maintaining a strong focus on cybersecurity and AI integration.
-                    </div>
-                    
-                    <div class="command-line second-command">
-                        <span class="prompt">gr1mm4g3@portfolio:~$</span>
-                        <span class="typing-command">ls certifications/</span>
-                    </div>
-                    <div class="command-output second-output certification-list">
-                        <li>📜 Web Security Specialist</li>
-                        <li>📜 Server Security Specialist</li>
-                        <li>📜 Forensic Specialist</li>
+                    <div class="terminal-content">
+                        <div class="command-line">
+                            <span class="prompt">gr1mm4g3@portfolio:~$</span>
+                            <span class="typing-command">cat profile.txt</span>
+                        </div>
+                        <div class="command-output">
+                            Full Stack Developer and Certified Ethical Hacker based in The Netherlands. Specializing in secure application development with modern frameworks like NextJS and Laravel, while maintaining a strong focus on cybersecurity and AI integration.
+                        </div>
+                        
+                        <div class="command-line second-command">
+                            <span class="prompt">gr1mm4g3@portfolio:~$</span>
+                            <span class="typing-command">ls certifications/</span>
+                        </div>
+                        <div class="command-output second-output certification-list">
+                            <li>📜 Web Security Specialist</li>
+                            <li>📜 Server Security Specialist</li>
+                            <li>📜 Forensic Specialist</li>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-title">skills.json</div>
-            </div>
-            <div class="terminal-content">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Offensive Security</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-shield-alt"></i> Penetration Testing</li>
-                            <li><i class="fas fa-bug"></i> Vulnerability Assessment</li>
-                            <li><i class="fas fa-code"></i> Exploit Development</li>
-                            <li><i class="fas fa-search"></i> OSINT</li>
-                            <li><i class="fas fa-network-wired"></i> Network Security</li>
-                            <li><i class="fas fa-mobile-alt"></i> Mobile App Security</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Defensive Security</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-virus-slash"></i> Malware Analysis</li>
-                            <li><i class="fas fa-file-signature"></i> Digital Forensics</li>
-                            <li><i class="fas fa-chart-line"></i> SIEM Management</li>
-                            <li><i class="fas fa-fingerprint"></i> Threat Hunting</li>
-                            <li><i class="fas fa-shield-virus"></i> Incident Response</li>
-                            <li><i class="fas fa-lock"></i> Access Control</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Development</h3>
-                        <ul class="skill-list">
-                            <li><i class="fab fa-python"></i> Python</li>
-                            <li><i class="fab fa-rust"></i> Rust</li>
-                            <li><i class="fab fa-js"></i> JavaScript/TypeScript</li>
-                            <li><i class="fab fa-react"></i> React/Vue.js</li>
-                            <li><i class="fab fa-docker"></i> Docker</li>
-                            <li><i class="fab fa-aws"></i> AWS/Cloud</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Tools & Technologies</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-terminal"></i> Kali Linux</li>
-                            <li><i class="fas fa-network-wired"></i> Wireshark</li>
-                            <li><i class="fas fa-bug"></i> Burp Suite</li>
-                            <li><i class="fas fa-code-branch"></i> Git</li>
-                            <li><i class="fas fa-database"></i> SQL/NoSQL</li>
-                            <li><i class="fas fa-server"></i> CI/CD</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="project-grid">
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <h2 class="section-title">Skills</h2>
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <div class="terminal-title">AI Image Generator</div>
+                    <div class="terminal-title">skills.json</div>
                 </div>
                 <div class="terminal-content">
-                    <h3>Creative AI Art Platform</h3>
-                    <p>Full-stack application that generates unique artwork using stable diffusion models with custom fine-tuning capabilities.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>PyTorch</span>
-                        <span>React</span>
-                        <span>FastAPI</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Offensive Security</h3>
+                            <ul class="skill-list">
+                                <li><i class="fas fa-shield-alt"></i> Penetration Testing</li>
+                                <li><i class="fas fa-bug"></i> Vulnerability Assessment</li>
+                                <li><i class="fas fa-code"></i> Exploit Development</li>
+                                <li><i class="fas fa-search"></i> OSINT</li>
+                                <li><i class="fas fa-network-wired"></i> Network Security</li>
+                                <li><i class="fas fa-mobile-alt"></i> Mobile App Security</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Defensive Security</h3>
+                            <ul class="skill-list">
+                                <li><i class="fas fa-virus-slash"></i> Malware Analysis</li>
+                                <li><i class="fas fa-file-signature"></i> Digital Forensics</li>
+                                <li><i class="fas fa-chart-line"></i> SIEM Management</li>
+                                <li><i class="fas fa-fingerprint"></i> Threat Hunting</li>
+                                <li><i class="fas fa-shield-virus"></i> Incident Response</li>
+                                <li><i class="fas fa-lock"></i> Access Control</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Development</h3>
+                            <ul class="skill-list">
+                                <li><i class="fab fa-python"></i> Python</li>
+                                <li><i class="fab fa-rust"></i> Rust</li>
+                                <li><i class="fab fa-js"></i> JavaScript/TypeScript</li>
+                                <li><i class="fab fa-react"></i> React/Vue.js</li>
+                                <li><i class="fab fa-docker"></i> Docker</li>
+                                <li><i class="fab fa-aws"></i> AWS/Cloud</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Tools & Technologies</h3>
+                            <ul class="skill-list">
+                                <li><i class="fas fa-terminal"></i> Kali Linux</li>
+                                <li><i class="fas fa-network-wired"></i> Wireshark</li>
+                                <li><i class="fas fa-bug"></i> Burp Suite</li>
+                                <li><i class="fas fa-code-branch"></i> Git</li>
+                                <li><i class="fas fa-database"></i> SQL/NoSQL</li>
+                                <li><i class="fas fa-server"></i> CI/CD</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-title">AI Image Generator</div>
+                    </div>
+                    <div class="terminal-content">
+                        <h3>Creative AI Art Platform</h3>
+                        <p>Full-stack application that generates unique artwork using stable diffusion models with custom fine-tuning capabilities.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>PyTorch</span>
+                            <span>React</span>
+                            <span>FastAPI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-title">Real-time Collaboration Suite</div>
+                    </div>
+                    <div class="terminal-content">
+                        <h3>Team Workspace Platform</h3>
+                        <p>Modern collaboration platform with real-time document editing, video chat, and project management tools.</p>
+                        <div class="tech-stack">
+                            <span>TypeScript</span>
+                            <span>Next.js</span>
+                            <span>Socket.io</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-title">Smart Home Dashboard</div>
+                    </div>
+                    <div class="terminal-content">
+                        <h3>IoT Control Center</h3>
+                        <p>Centralized dashboard for managing smart home devices with automation rules and energy consumption analytics.</p>
+                        <div class="tech-stack">
+                            <span>Vue.js</span>
+                            <span>Node.js</span>
+                            <span>MQTT</span>
+                            <span>InfluxDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-title">Code Learning Platform</div>
+                    </div>
+                    <div class="terminal-content">
+                        <h3>Interactive Programming Tutorials</h3>
+                        <p>Educational platform with interactive coding challenges, real-time code execution, and progress tracking.</p>
+                        <div class="tech-stack">
+                            <span>React</span>
+                            <span>GraphQL</span>
+                            <span>Docker</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-title">E-commerce Platform</div>
+                    </div>
+                    <div class="terminal-content">
+                        <h3>Modern Shopping Experience</h3>
+                        <p>Full-featured e-commerce solution with real-time inventory, AI-powered recommendations, and analytics dashboard.</p>
+                        <div class="tech-stack">
+                            <span>Next.js</span>
+                            <span>Stripe</span>
+                            <span>Redis</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-title">Social Media Analytics</div>
+                    </div>
+                    <div class="terminal-content">
+                        <h3>Social Insights Platform</h3>
+                        <p>Analytics platform that processes social media data to provide engagement insights and trend analysis using ML.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>FastAPI</span>
+                            <span>Elasticsearch</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2 class="section-title">Contact</h2>
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <div class="terminal-title">Real-time Collaboration Suite</div>
+                    <div class="terminal-buttons">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="terminal-title">contact.sh</div>
                 </div>
                 <div class="terminal-content">
-                    <h3>Team Workspace Platform</h3>
-                    <p>Modern collaboration platform with real-time document editing, video chat, and project management tools.</p>
-                    <div class="tech-stack">
-                        <span>TypeScript</span>
-                        <span>Next.js</span>
-                        <span>Socket.io</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
+                    <form id="contact-form" class="terminal-form">
+                        <div class="form-group">
+                            <label for="name">$ echo $NAME:</label>
+                            <input type="text" id="name" name="name" required placeholder="_">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">$ echo $EMAIL:</label>
+                            <input type="email" id="email" name="email" required placeholder="_">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">$ cat message.txt:</label>
+                            <textarea id="message" name="message" required placeholder="_"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span class="terminal-prompt">$</span> ./send_message.sh
+                        </button>
+                    </form>
+                    <div id="form-response" class="hidden">
+                        <pre><code class="response-message"></code></pre>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">Smart Home Dashboard</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>IoT Control Center</h3>
-                    <p>Centralized dashboard for managing smart home devices with automation rules and energy consumption analytics.</p>
-                    <div class="tech-stack">
-                        <span>Vue.js</span>
-                        <span>Node.js</span>
-                        <span>MQTT</span>
-                        <span>InfluxDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>Copyright &copy; 2024 Lesley Stobbe | Built with <i class="fas fa-code"></i> and <i class="fas fa-heart"></i></p>
             </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">Code Learning Platform</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>Interactive Programming Tutorials</h3>
-                    <p>Educational platform with interactive coding challenges, real-time code execution, and progress tracking.</p>
-                    <div class="tech-stack">
-                        <span>React</span>
-                        <span>GraphQL</span>
-                        <span>Docker</span>
-                        <span>MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">E-commerce Platform</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>Modern Shopping Experience</h3>
-                    <p>Full-featured e-commerce solution with real-time inventory, AI-powered recommendations, and analytics dashboard.</p>
-                    <div class="tech-stack">
-                        <span>Next.js</span>
-                        <span>Stripe</span>
-                        <span>Redis</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">Social Media Analytics</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>Social Insights Platform</h3>
-                    <p>Analytics platform that processes social media data to provide engagement insights and trend analysis using ML.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>TensorFlow</span>
-                        <span>FastAPI</span>
-                        <span>Elasticsearch</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 class="section-title">Contact</h2>
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="terminal-title">contact.sh</div>
-            </div>
-            <div class="terminal-content">
-                <form id="contact-form" class="terminal-form">
-                    <div class="form-group">
-                        <label for="name">$ echo $NAME:</label>
-                        <input type="text" id="name" name="name" required placeholder="_">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">$ echo $EMAIL:</label>
-                        <input type="email" id="email" name="email" required placeholder="_">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">$ cat message.txt:</label>
-                        <textarea id="message" name="message" required placeholder="_"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span class="terminal-prompt">$</span> ./send_message.sh
-                    </button>
-                </form>
-                <div id="form-response" class="hidden">
-                    <pre><code class="response-message"></code></pre>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>Copyright &copy; 2024 Lesley Stobbe | Built with <i class="fas fa-code"></i> and <i class="fas fa-heart"></i></p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
