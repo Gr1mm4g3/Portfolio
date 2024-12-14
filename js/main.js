@@ -330,8 +330,40 @@ function initializeAboutTerminal() {
  */
 function initializeParticleEffect() {
     const canvas = document.getElementById('particleCanvas');
+    const container = document.querySelector('.particle-container');
     const ctx = canvas.getContext('2d');
     
+    // Mouse position tracking
+    let mouse = {
+        x: null,
+        y: null,
+        radius: 150
+    };
+
+    // Update mouse position
+    function updateMousePosition(e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    }
+
+    // Handle touch events
+    function handleTouch(e) {
+        e.preventDefault();
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.touches[0].clientX - rect.left;
+        mouse.y = e.touches[0].clientY - rect.top;
+    }
+
+    // Event listeners for mouse and touch
+    container.addEventListener('mousemove', updateMousePosition);
+    container.addEventListener('touchstart', handleTouch, { passive: false });
+    container.addEventListener('touchmove', handleTouch, { passive: false });
+    container.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
     // Set canvas size
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -345,21 +377,50 @@ function initializeParticleEffect() {
     class Particle {
         constructor() {
             this.reset();
+            this.baseSize = Math.random() * 3 + 1;
+            this.baseSpeed = (Math.random() - 0.5) * 0.5;
         }
         
         reset() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 3 + 1; // Increased size
-            this.speedX = (Math.random() - 0.5) * 0.5;
-            this.speedY = (Math.random() - 0.5) * 0.5;
-            this.opacity = Math.random() * 0.7 + 0.3; // Increased opacity range
+            this.size = this.baseSize || (Math.random() * 3 + 1);
+            this.speedX = this.baseSpeed || (Math.random() - 0.5) * 0.5;
+            this.speedY = this.baseSpeed || (Math.random() - 0.5) * 0.5;
+            this.opacity = Math.random() * 0.7 + 0.3;
         }
         
         update() {
+            // Base movement
             this.x += this.speedX;
             this.y += this.speedY;
             
+            // Mouse interaction
+            if (mouse.x != null && mouse.y != null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < mouse.radius) {
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    
+                    // Repel particles from cursor with stronger force
+                    const repelStrength = 3;
+                    this.x -= Math.cos(angle) * force * repelStrength;
+                    this.y -= Math.sin(angle) * force * repelStrength;
+                    
+                    // Increase size and opacity when near cursor
+                    this.size = this.baseSize * (1 + force);
+                    this.opacity = Math.min(1, this.opacity + force * 0.3);
+                } else {
+                    // Gradually return to base size and opacity
+                    this.size = this.baseSize + (this.size - this.baseSize) * 0.95;
+                    this.opacity = Math.max(0.3, this.opacity - 0.01);
+                }
+            }
+            
+            // Reset if out of bounds
             if (this.x < 0 || this.x > canvas.width || 
                 this.y < 0 || this.y > canvas.height) {
                 this.reset();
@@ -368,18 +429,21 @@ function initializeParticleEffect() {
         
         draw() {
             ctx.fillStyle = `rgba(0, 255, 255, ${this.opacity})`;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = 'rgba(0, 255, 255, 0.5)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
         }
     }
     
-    // Create particle array
-    const particles = Array.from({ length: 100 }, () => new Particle());
+    // Create particle array - increase number of particles
+    const particles = Array.from({ length: 120 }, () => new Particle());
     
     // Animation loop
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.shadowBlur = 0; // Reset shadow for better performance
         
         particles.forEach(particle => {
             particle.update();
@@ -393,8 +457,10 @@ function initializeParticleEffect() {
                 const dy = p1.y - p2.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 150) { // Increased connection distance
-                    ctx.strokeStyle = `rgba(0, 255, 255, ${0.15 * (1 - distance / 150)})`; // Increased line opacity
+                if (distance < 150) {
+                    const opacity = 0.15 * (1 - distance / 150);
+                    ctx.strokeStyle = `rgba(0, 255, 255, ${opacity})`;
+                    ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
@@ -402,6 +468,21 @@ function initializeParticleEffect() {
                 }
             });
         });
+        
+        // Draw cursor glow effect
+        if (mouse.x != null && mouse.y != null) {
+            const gradient = ctx.createRadialGradient(
+                mouse.x, mouse.y, 0,
+                mouse.x, mouse.y, mouse.radius
+            );
+            gradient.addColorStop(0, 'rgba(0, 255, 255, 0.15)');
+            gradient.addColorStop(1, 'rgba(0, 255, 255, 0)');
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(mouse.x, mouse.y, mouse.radius, 0, Math.PI * 2);
+            ctx.fill();
+        }
         
         requestAnimationFrame(animate);
     }
