@@ -122,14 +122,14 @@ The website follows a cyberpunk/hacker aesthetic with:
      - [x] Add loading animations
      - [x] Implement IntersectionObserver
      - [x] Add fallback for older browsers
-   - [ ] Optimize images
-     - [ ] Compress images
-     - [ ] Convert to WebP format
-     - [ ] Add responsive image sizes
-   - [ ] Add service worker
-     - [ ] Implement offline support
-     - [ ] Cache static assets
-     - [ ] Add push notifications
+   - [x] Optimize images
+     - [x] Compress images
+     - [x] Convert to WebP format
+     - [x] Add responsive image sizes
+   - [x] Add service worker
+     - [x] Implement offline support
+     - [x] Cache static assets
+     - [x] Add push notifications
    - [ ] Implement caching strategies
      - [ ] Cache API implementation
      - [ ] Local storage optimization
