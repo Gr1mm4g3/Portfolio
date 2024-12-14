@@ -34,7 +34,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Interactive nav links with glitch animations
    - [x] Terminal-style command prompt
    - [x] Active state with glowing underline effect
-   - [ ] Mobile menu animation
+   - [x] Mobile menu animation
 
 2. **About Section**
    - [x] Terminal-style window design
@@ -48,7 +48,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Network connection lines
    - [x] Dynamic canvas resizing
    - [x] Optimized particle animations
-   - [ ] Particle interaction with cursor
+   - [x] Particle interaction with cursor
 
 4. **Footer Enhancement**
    - [x] Add copyright information
