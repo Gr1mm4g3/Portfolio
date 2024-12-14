@@ -66,6 +66,8 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add real project screenshots/demos
    - [x] Connect to actual GitHub repositories
    - [ ] Implement project filtering by technology
+   - [x] Add portfolio as first real project
+   - [x] Add portfolio screenshot
 
 6. **Contact Form**
    - [x] Create terminal-styled contact form
