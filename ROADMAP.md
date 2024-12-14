@@ -48,16 +48,21 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Create custom favicon from code icon
 
 4. **Projects Section**
-   - [ ] Add project cards with terminal-style windows
-   - [ ] Include project screenshots/demos
-   - [ ] Add GitHub links and live demo buttons
+   - [x] Add project cards with terminal-style windows
+   - [x] Include project descriptions and tech stacks
+   - [x] Add GitHub links and live demo buttons
+   - [x] Implement hover animations and effects
+   - [ ] Add real project screenshots/demos
+   - [ ] Connect to actual GitHub repositories
    - [ ] Implement project filtering by technology
 
 5. **Contact Form**
-   - [ ] Create terminal-styled contact form
-   - [ ] Add form validation
+   - [x] Create terminal-styled contact form
+   - [x] Add form validation
    - [ ] Implement email functionality
-   - [ ] Add loading animations
+   - [x] Add loading animations
+   - [x] Add success/error messages
+   - [x] Style form elements to match theme
 
 6. **Hero Section Enhancement**
    - [ ] Expand typing animation content
