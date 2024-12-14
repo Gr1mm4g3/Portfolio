@@ -116,19 +116,13 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [ ] Performance testing
 
 ### Phase 3: Advanced Features
-1. **Blog Section**
-   - [ ] Terminal-styled blog posts
-   - [ ] Code snippet highlighting
-   - [ ] Category filtering
-   - [ ] RSS feed
-
-2. **Experience Timeline**
+1. **Experience Timeline**
    - [ ] Interactive command-line timeline
    - [ ] Animated transitions
    - [ ] Detailed role descriptions
    - [ ] Technology badges
 
-3. **Performance Optimization**
+2. **Performance Optimization**
    - [ ] Implement lazy loading
    - [ ] Optimize images
    - [ ] Add service worker
