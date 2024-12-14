@@ -97,12 +97,11 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add Open Graph tags
    - [x] Create sitemap.xml
 
-9. **Additional Features**
-   - [ ] Add dark/light theme toggle
-   - [ ] Implement language switcher
-   - [ ] Add project search functionality
-   - [ ] Create blog section
-   - [ ] Add RSS feed
+9. **Accessibility**
+   - [ ] ARIA labels
+   - [ ] Keyboard navigation
+   - [ ] Screen reader optimization
+   - [ ] Color contrast compliance
 
 ### Phase 2: Interactive Features (Next Sprint)
 1. **Terminal Emulator**
@@ -152,13 +151,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [ ] Typing animations
    - [ ] Hover effects
 
-2. **Accessibility**
-   - [ ] ARIA labels
-   - [ ] Keyboard navigation
-   - [ ] Screen reader optimization
-   - [ ] Color contrast compliance
-
-3. **Cross-browser Testing**
+2. **Cross-browser Testing**
    - [ ] Mobile responsiveness
    - [ ] Browser compatibility
    - [ ] Performance testing
