@@ -97,33 +97,23 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add Open Graph tags
    - [x] Create sitemap.xml
 
-9. **Accessibility**
-   - [ ] ARIA labels
-   - [ ] Keyboard navigation
-   - [ ] Screen reader optimization
-   - [ ] Color contrast compliance
-
 ### Phase 2: Interactive Features (Next Sprint)
-1. **Terminal Emulator**
-   - [ ] Add working terminal commands
-   - [ ] Implement basic shell functionality
-   - [ ] Add interactive command history
-   - [ ] Support for common Unix commands
-   - [ ] Custom commands for portfolio navigation
-   - [ ] Command auto-completion
-   - [ ] Easter eggs and hidden features
-
-2. **Skills Visualization**
+1. **Skills Visualization**
    - [ ] Create interactive skill tree
    - [ ] Add progress indicators
    - [ ] Implement skill filtering
    - [ ] Add hover animations
 
-3. **Portfolio Projects**
+2. **Portfolio Projects**
    - [ ] Add project carousel
    - [ ] Implement project detail modals
    - [ ] Add live preview functionality
    - [ ] Create project tags system
+
+3. **Cross-browser Testing**
+   - [ ] Mobile responsiveness
+   - [ ] Browser compatibility
+   - [ ] Performance testing
 
 ### Phase 3: Advanced Features
 1. **Blog Section**
@@ -151,11 +141,12 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [ ] Typing animations
    - [ ] Hover effects
 
-2. **Cross-browser Testing**
-   - [ ] Mobile responsiveness
-   - [ ] Browser compatibility
-   - [ ] Performance testing
-   - [ ] Security auditing
+2. **Security Enhancements**
+   - [ ] Input validation
+   - [ ] XSS prevention
+   - [ ] CSRF protection
+   - [ ] Content security policy
+   - [ ] Security headers
 
 ## Styling Guide
 
