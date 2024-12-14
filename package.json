@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "A modern, interactive portfolio website with a developer/hacker aesthetic.",
+  "main": "optimize-images.js",
+  "type": "module",
+  "scripts": {
+    "optimize": "node optimize-images.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gr1mm4g3/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gr1mm4g3/Portfolio/issues"
+  },
+  "homepage": "https://github.com/Gr1mm4g3/Portfolio#readme",
+  "devDependencies": {
+    "imagemin": "^8.0.1",
+    "imagemin-pngquant": "^9.0.2"
+  }
+}

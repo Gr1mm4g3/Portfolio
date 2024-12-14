@@ -91,7 +91,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add role description
 
 8. **Performance & SEO**
-   - [ ] Optimize images and assets
+   - [x] Optimize images and assets
    - [x] Add meta tags for SEO
    - [x] Implement lazy loading
    - [x] Add Open Graph tags
