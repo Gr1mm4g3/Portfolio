@@ -65,7 +65,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add cybersecurity project examples
    - [x] Add real project screenshots/demos
    - [x] Connect to actual GitHub repositories
-   - [ ] Implement project filtering by technology
+   - [x] Implement project filtering by technology
    - [x] Add portfolio as first real project
    - [x] Add portfolio screenshot
    - [x] Add 2048 game project

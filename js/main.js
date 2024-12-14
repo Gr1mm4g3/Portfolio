@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
         }
     }, { passive: false });
+
+    // Initialize project filters
+    initializeProjectFilters();
 });
 
 /**
@@ -506,6 +509,41 @@ function initializeParticleEffect() {
     }
     
     animate();
+}
+
+/**
+ * Initializes project filtering functionality
+ */
+function initializeProjectFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-grid .terminal-window');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projects.forEach(project => {
+                const techStack = project.querySelector('.tech-stack');
+                if (!techStack) return;
+
+                const technologies = Array.from(techStack.querySelectorAll('span'))
+                    .map(span => span.textContent);
+
+                if (filter === 'all' || technologies.includes(filter)) {
+                    project.classList.remove('hidden');
+                    // Add fade-in animation
+                    project.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    project.classList.add('hidden');
+                }
+            });
+        });
+    });
 }
 
 /**
