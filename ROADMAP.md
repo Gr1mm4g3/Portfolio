@@ -62,8 +62,8 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Add GitHub links and live demo buttons
    - [x] Implement hover animations and effects
    - [x] Add cybersecurity project examples
-   - [ ] Add real project screenshots/demos
-   - [ ] Connect to actual GitHub repositories
+   - [x] Add real project screenshots/demos
+   - [x] Connect to actual GitHub repositories
    - [ ] Implement project filtering by technology
 
 6. **Contact Form**
