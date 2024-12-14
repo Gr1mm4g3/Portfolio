@@ -41,7 +41,7 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [x] Sequential command typing animation
    - [x] Smooth command output transitions
    - [x] Fix animation timing and visibility issues
-   - [ ] Add more interactive commands
+   - [ ] ~~Add more interactive commands~~ (Moved to new Terminal Emulator section)
 
 3. **Visual Effects**
    - [x] Particle system background
@@ -99,8 +99,11 @@ The website follows a cyberpunk/hacker aesthetic with:
 1. **Terminal Emulator**
    - [ ] Add working terminal commands
    - [ ] Implement basic shell functionality
-   - [ ] Create Easter eggs through commands
-   - [ ] Add command history
+   - [ ] Add interactive command history
+   - [ ] Support for common Unix commands
+   - [ ] Custom commands for portfolio navigation
+   - [ ] Command auto-completion
+   - [ ] Easter eggs and hidden features
 
 2. **Skills Visualization**
    - [ ] Create interactive skill tree
