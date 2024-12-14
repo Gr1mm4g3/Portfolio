@@ -1,0 +1,36 @@
+# Dependencies
+/node_modules
+package-lock.json
+
+# Backup files
+*_backup/
+*_backup.*
+*.bak
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Build output
+/dist
+/build
+/out
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log
+
+# Cache directories
+.cache/
+.npm/
+.eslintcache
