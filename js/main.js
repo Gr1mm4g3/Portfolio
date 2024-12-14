@@ -21,41 +21,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const formResponse = document.getElementById('form-response');
     const responseMessage = formResponse.querySelector('.response-message');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    async function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        // Show loading state
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span class="terminal-prompt">$</span> sending...';
+        submitBtn.disabled = true;
+        
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             
-            // Show loading state
-            const submitBtn = contactForm.querySelector('.submit-btn');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span class="terminal-prompt">$</span> Processing...';
-            submitBtn.disabled = true;
-
-            // Simulate form submission (replace with actual form handling)
-            try {
-                // Add actual form submission logic here
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                // Show success message
-                formResponse.classList.remove('hidden', 'error');
-                formResponse.classList.add('success');
-                responseMessage.textContent = '✓ Message sent successfully! I will get back to you soon.';
+            const result = await response.json();
+            
+            if (response.ok) {
+                // Success
+                showFormResponse('Message sent successfully! I will get back to you soon.', 'success');
                 contactForm.reset();
-            } catch (error) {
-                // Show error message
-                formResponse.classList.remove('hidden', 'success');
-                formResponse.classList.add('error');
-                responseMessage.textContent = '✗ Error sending message. Please try again.';
-            } finally {
-                // Reset button state
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-                
-                // Scroll response into view
-                formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                // Error from server
+                throw new Error(result.error || 'Something went wrong. Please try again.');
             }
-        });
+        } catch (error) {
+            // Network or other error
+            showFormResponse(`Error: ${error.message}`, 'error');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        }
     }
+
+    function showFormResponse(message, type) {
+        responseMessage.textContent = type === 'success' 
+            ? `✓ ${message}` 
+            : `✗ ${message}`;
+        formResponse.classList.remove('hidden');
+        formResponse.classList.remove('success', 'error');
+        formResponse.classList.add(type);
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formResponse.classList.add('hidden');
+        }, 5000);
+    }
+
+    contactForm.addEventListener('submit', handleFormSubmit);
 
     // Initialize particle effect
     initializeParticleEffect();
