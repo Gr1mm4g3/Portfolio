@@ -62,13 +62,13 @@ body.menu-open {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(10, 10, 10, 0.95);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 100;
 }
 
 .nav-brand {
@@ -333,6 +333,8 @@ section {
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 /* Terminal Window Cyberpunk Hover Effect */
@@ -906,12 +908,40 @@ footer {
     }
 }
 
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: auto;
+}
+
 #particleCanvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
     opacity: 0.6;
+    pointer-events: none;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.navbar,
+.terminal-window,
+.nav-links a,
+button,
+input,
+.terminal-content,
+.project-card,
+.contact-form,
+footer {
+    pointer-events: auto;
 }
