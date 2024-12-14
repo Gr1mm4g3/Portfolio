@@ -255,11 +255,9 @@ function initializeAboutTerminal() {
                     charIndex++;
                     setTimeout(typeChar, typingSpeed);
                 } else {
-                    setTimeout(() => {
-                        command.classList.remove('typing');
-                        command.classList.add('typed');
-                        resolve();
-                    }, 300);  
+                    command.classList.remove('typing');
+                    command.classList.add('typed');
+                    resolve();
                 }
             }
 

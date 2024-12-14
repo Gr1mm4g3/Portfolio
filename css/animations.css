@@ -3,51 +3,274 @@
  * Contains all custom animations and transitions
  */
 
-/* Cursor Blink Animation */
-@keyframes blink {
-    from, to { background-color: transparent }
-    50% { background-color: var(--accent-primary); }
-}
-
-/* Typing Animation */
+/* Typing Animation - Enhanced with smoother motion */
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    from { 
+        width: 0;
+    }
+    to { 
+        width: 100%;
+    }
 }
 
-/* Glow Effect Animation */
+/* Glow Effect Animation - Enhanced with multiple colors */
 @keyframes glow {
-    0% { text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
-    50% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
-    100% { text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
+    0% { 
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5),
+                    0 0 10px rgba(0, 255, 255, 0.3);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8),
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    0 0 40px rgba(0, 255, 255, 0.3);
+    }
+    100% { 
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5),
+                    0 0 10px rgba(0, 255, 255, 0.3);
+    }
 }
 
-/* Fade In Animation */
+/* Fade In Animation - Enhanced with 3D effect */
 @keyframes fadeIn {
     from { 
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(10px) translateZ(-50px);
+        filter: blur(5px);
     }
     to { 
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0);
+        filter: blur(0);
     }
 }
 
-/* Glitch Effect */
+/* Glitch Effect - Enhanced with color shifting */
 @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+    0% { 
+        transform: translate(0);
+        text-shadow: none;
+    }
+    20% { 
+        transform: translate(-2px, 2px);
+        text-shadow: 2px 0 #ff0080, -2px 0 #00ff00;
+    }
+    40% { 
+        transform: translate(-2px, -2px);
+        text-shadow: 3px 0 #00ff00, -3px 0 #ff0080;
+    }
+    60% { 
+        transform: translate(2px, 2px);
+        text-shadow: -3px 0 #00ff00, 3px 0 #ff0080;
+    }
+    80% { 
+        transform: translate(2px, -2px);
+        text-shadow: -2px 0 #ff0080, 2px 0 #00ff00;
+    }
+    100% { 
+        transform: translate(0);
+        text-shadow: none;
+    }
 }
 
-/* Matrix Rain Effect */
+/* Matrix Rain Effect - Enhanced with varying speeds and opacity */
 @keyframes matrixRain {
-    0% { transform: translateY(-100%); opacity: 1; }
-    100% { transform: translateY(100%); opacity: 0; }
+    0% { 
+        transform: translateY(-100%) rotate(5deg);
+        opacity: 1;
+        color: #00ff00;
+    }
+    50% {
+        color: #0ff;
+        opacity: 0.8;
+    }
+    100% { 
+        transform: translateY(100%) rotate(-5deg);
+        opacity: 0;
+        color: #00ff00;
+    }
+}
+
+/* Terminal Window Animation */
+@keyframes bootSequence {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+        filter: brightness(0);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(0.3);
+    }
+    60% {
+        filter: brightness(0.5);
+    }
+    80% {
+        filter: brightness(0.8);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* Scanline effect for terminal windows */
+@keyframes scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+/* Hover glow effect for interactive elements */
+@keyframes hoverGlow {
+    0% {
+        box-shadow: 0 0 5px var(--accent-primary),
+                   0 0 10px var(--accent-primary);
+    }
+    50% {
+        box-shadow: 0 0 15px var(--accent-primary),
+                   0 0 30px var(--accent-primary),
+                   0 0 45px var(--accent-primary);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--accent-primary),
+                   0 0 10px var(--accent-primary);
+    }
+}
+
+/* Apply animations to elements */
+
+/* Terminal windows boot sequence */
+.terminal-window {
+    animation: bootSequence 1s ease-out;
+}
+
+/* Scanline effect */
+.terminal-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right,
+        transparent,
+        var(--accent-primary),
+        transparent
+    );
+    opacity: 0.1;
+    animation: scanline 3s linear infinite;
+}
+
+/* Typing animation for commands */
+.typing-command {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(30, end) forwards;
+    margin-left: 8px;
+}
+
+/* Only apply typing animation to active commands */
+.typing-command.typing {
+    animation: typing 2s steps(30, end);
+}
+
+/* Remove border after typing is complete */
+.typing-command.typed {
+    border-right: none;
+}
+
+/* Enhanced glow effect for links and buttons */
+.btn:hover,
+.nav-link:hover,
+.social-link:hover {
+    animation: hoverGlow 1.5s ease-in-out infinite;
+}
+
+/* Matrix rain characters */
+.matrix-char {
+    position: absolute;
+    animation: matrixRain 2s linear infinite;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+/* Glitch effect for headings */
+.section-title:hover {
+    animation: glitch 0.3s linear infinite;
+}
+
+/* Smooth reveal for sections */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px) translateZ(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(5px);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+    filter: blur(0);
+}
+
+/* Hover effect for project cards */
+.project-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+                0 0 15px var(--accent-primary);
+}
+
+/* Skill tag animations */
+.tech-tag {
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    transform: translateY(-2px);
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+/* Form input focus animation */
+.terminal-form input:focus,
+.terminal-form textarea:focus {
+    animation: glow 1.5s ease-in-out infinite;
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+/* Submit button hover animation */
+.submit-btn:hover {
+    animation: hoverGlow 1.5s ease-in-out infinite;
+    transform: translateY(-2px);
+}
+
+/* Navigation menu hover effect */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    box-shadow: 0 0 10px var(--accent-primary);
 }
 
 /* Terminal Command Line Styles */
@@ -78,10 +301,6 @@
 .typing-command.typing,
 .typing-command.typed {
     visibility: visible;  /* Show during and after typing */
-}
-
-.typing-command.typing {
-    border-right: 2px solid var(--accent-primary);
 }
 
 .command-output {
@@ -135,19 +354,6 @@
     position: relative;
 }
 
-.typing-command::after {
-    content: '';
-    position: absolute;
-    right: -2px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 1.2em;
-    background-color: var(--accent-primary);
-    animation: blink 1s step-end infinite;
-    animation-delay: 1s;
-}
-
 .command-output {
     opacity: 0;
     animation: fadeIn 0.5s ease-out forwards;
@@ -198,16 +404,10 @@
     to { width: 100%; }
 }
 
-@keyframes blink-caret {
-    from, to { opacity: 0; }
-    50% { opacity: 1; }
-}
-
 /* Animation Classes */
 .typing-text {
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid var(--accent-primary);
     width: 0;
     animation: typing 3s steps(40, end) forwards;
 }
@@ -399,4 +599,8 @@
 
 .terminal-prompt {
     color: var(--terminal-green);
+}
+
+.terminal-cursor {
+    display: none;
 }
