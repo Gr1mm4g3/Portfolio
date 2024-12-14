@@ -106,7 +106,7 @@ The website follows a cyberpunk/hacker aesthetic with:
 
 2. **Portfolio Projects**
    - [ ] Add project carousel
-   - [ ] Implement project detail modals
+   - [x] Implement project detail modals
    - [ ] Add live preview functionality
    - [ ] Create project tags system
    - [x] Remove project filters for cleaner UI
