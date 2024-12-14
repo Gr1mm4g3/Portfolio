@@ -263,7 +263,7 @@
 /* Terminal Window Cyberpunk Hover Effect */
 .hero .terminal-window,
 .about .terminal-window,
-.projects .terminal-window {
+.skills .terminal-window,{
     position: relative;
     transition: transform 0.3s ease;
     border: 1px solid rgba(0, 255, 255, 0.1);
@@ -297,13 +297,15 @@
 
 .hero .terminal-window:hover,
 .about .terminal-window:hover,
-.projects .terminal-window:hover {
+.projects .terminal-window:hover,
+.skills .terminal-window:hover {
     transform: translateY(-2px);
 }
 
 .hero .terminal-window:hover::before,
 .about .terminal-window:hover::before,
-.projects .terminal-window:hover::before {
+.projects .terminal-window:hover::before,
+.skills .terminal-window:hover::before {
     opacity: 1;
     animation: cyberpunkBorder 3s linear infinite;
 }

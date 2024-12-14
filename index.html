@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+    <canvas id="particleCanvas"></canvas>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-brand">
@@ -96,39 +97,58 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Development</h3>
-                <div class="skill-items">
-                    <div class="skill-item">
-                        <i class="fas fa-code"></i>
-                        <span>NextJS</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-laravel"></i>
-                        <span>Laravel</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-brain"></i>
-                        <span>AI Integration</span>
-                    </div>
-                </div>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-title">skills.json</div>
             </div>
-            
-            <div class="skill-category">
-                <h3>Security</h3>
-                <div class="skill-items">
-                    <div class="skill-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Web Security</span>
+            <div class="terminal-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Offensive Security</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-shield-alt"></i> Penetration Testing</li>
+                            <li><i class="fas fa-bug"></i> Vulnerability Assessment</li>
+                            <li><i class="fas fa-code"></i> Exploit Development</li>
+                            <li><i class="fas fa-search"></i> OSINT</li>
+                            <li><i class="fas fa-network-wired"></i> Network Security</li>
+                            <li><i class="fas fa-mobile-alt"></i> Mobile App Security</li>
+                        </ul>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-server"></i>
-                        <span>Server Security</span>
+
+                    <div class="skill-category">
+                        <h3>Defensive Security</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-virus-slash"></i> Malware Analysis</li>
+                            <li><i class="fas fa-file-signature"></i> Digital Forensics</li>
+                            <li><i class="fas fa-chart-line"></i> SIEM Management</li>
+                            <li><i class="fas fa-fingerprint"></i> Threat Hunting</li>
+                            <li><i class="fas fa-shield-virus"></i> Incident Response</li>
+                            <li><i class="fas fa-lock"></i> Access Control</li>
+                        </ul>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-search"></i>
-                        <span>Digital Forensics</span>
+
+                    <div class="skill-category">
+                        <h3>Development</h3>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fab fa-rust"></i> Rust</li>
+                            <li><i class="fab fa-js"></i> JavaScript/TypeScript</li>
+                            <li><i class="fab fa-react"></i> React/Vue.js</li>
+                            <li><i class="fab fa-docker"></i> Docker</li>
+                            <li><i class="fab fa-aws"></i> AWS/Cloud</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-terminal"></i> Kali Linux</li>
+                            <li><i class="fas fa-network-wired"></i> Wireshark</li>
+                            <li><i class="fas fa-bug"></i> Burp Suite</li>
+                            <li><i class="fas fa-code-branch"></i> Git</li>
+                            <li><i class="fas fa-database"></i> SQL/NoSQL</li>
+                            <li><i class="fas fa-server"></i> CI/CD</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -141,36 +161,16 @@
         <div class="project-grid">
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <div class="terminal-title">Network Intrusion Detection System</div>
+                    <div class="terminal-title">AI Image Generator</div>
                 </div>
                 <div class="terminal-content">
-                    <h3>NIDS with Machine Learning</h3>
-                    <p>Advanced network security tool using ML algorithms to detect and prevent cyber attacks in real-time.</p>
+                    <h3>Creative AI Art Platform</h3>
+                    <p>Full-stack application that generates unique artwork using stable diffusion models with custom fine-tuning capabilities.</p>
                     <div class="tech-stack">
                         <span>Python</span>
-                        <span>TensorFlow</span>
-                        <span>Scikit-learn</span>
-                        <span>Wireshark</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">Secure File Vault</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>Zero-Knowledge Encryption Vault</h3>
-                    <p>End-to-end encrypted file storage system with zero-knowledge architecture and military-grade encryption.</p>
-                    <div class="tech-stack">
-                        <span>Rust</span>
-                        <span>WebAssembly</span>
+                        <span>PyTorch</span>
                         <span>React</span>
-                        <span>AWS</span>
+                        <span>FastAPI</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn">View Demo</a>
@@ -181,75 +181,15 @@
 
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <div class="terminal-title">Blockchain Security Analyzer</div>
+                    <div class="terminal-title">Real-time Collaboration Suite</div>
                 </div>
                 <div class="terminal-content">
-                    <h3>Smart Contract Vulnerability Scanner</h3>
-                    <p>Automated security analysis tool for smart contracts, detecting common vulnerabilities and attack vectors.</p>
+                    <h3>Team Workspace Platform</h3>
+                    <p>Modern collaboration platform with real-time document editing, video chat, and project management tools.</p>
                     <div class="tech-stack">
-                        <span>Solidity</span>
                         <span>TypeScript</span>
-                        <span>Node.js</span>
-                        <span>Web3.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">Threat Intel Dashboard</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>Real-time Threat Intelligence Platform</h3>
-                    <p>Cybersecurity dashboard aggregating and analyzing threat data from multiple sources with real-time alerts.</p>
-                    <div class="tech-stack">
-                        <span>Vue.js</span>
-                        <span>D3.js</span>
-                        <span>FastAPI</span>
-                        <span>MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">Malware Analysis Lab</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>Automated Malware Sandbox</h3>
-                    <p>Secure environment for automated malware analysis with behavior monitoring and detailed reporting capabilities.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>Docker</span>
-                        <span>Cuckoo</span>
-                        <span>YARA</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-title">Phishing Defense Kit</div>
-                </div>
-                <div class="terminal-content">
-                    <h3>Anti-Phishing Toolkit</h3>
-                    <p>ML-powered phishing detection system with email analysis, URL scanning, and real-time threat intelligence integration.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>FastAPI</span>
-                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>Socket.io</span>
                         <span>PostgreSQL</span>
                     </div>
                     <div class="project-links">
@@ -261,15 +201,35 @@
 
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <div class="terminal-title">IoT Security Scanner</div>
+                    <div class="terminal-title">Smart Home Dashboard</div>
                 </div>
                 <div class="terminal-content">
-                    <h3>IoT Vulnerability Assessment</h3>
-                    <p>Comprehensive security scanner for IoT devices, identifying firmware vulnerabilities and misconfigurations.</p>
+                    <h3>IoT Control Center</h3>
+                    <p>Centralized dashboard for managing smart home devices with automation rules and energy consumption analytics.</p>
                     <div class="tech-stack">
-                        <span>Rust</span>
-                        <span>Python</span>
-                        <span>Angular</span>
+                        <span>Vue.js</span>
+                        <span>Node.js</span>
+                        <span>MQTT</span>
+                        <span>InfluxDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn">View Demo</a>
+                        <a href="#" class="btn">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-title">Code Learning Platform</div>
+                </div>
+                <div class="terminal-content">
+                    <h3>Interactive Programming Tutorials</h3>
+                    <p>Educational platform with interactive coding challenges, real-time code execution, and progress tracking.</p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>GraphQL</span>
+                        <span>Docker</span>
                         <span>MongoDB</span>
                     </div>
                     <div class="project-links">
@@ -281,16 +241,36 @@
 
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <div class="terminal-title">Red Team Arsenal</div>
+                    <div class="terminal-title">E-commerce Platform</div>
                 </div>
                 <div class="terminal-content">
-                    <h3>Penetration Testing Framework</h3>
-                    <p>Modular penetration testing toolkit with automated reconnaissance, exploitation, and reporting capabilities.</p>
+                    <h3>Modern Shopping Experience</h3>
+                    <p>Full-featured e-commerce solution with real-time inventory, AI-powered recommendations, and analytics dashboard.</p>
+                    <div class="tech-stack">
+                        <span>Next.js</span>
+                        <span>Stripe</span>
+                        <span>Redis</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn">View Demo</a>
+                        <a href="#" class="btn">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-title">Social Media Analytics</div>
+                </div>
+                <div class="terminal-content">
+                    <h3>Social Insights Platform</h3>
+                    <p>Analytics platform that processes social media data to provide engagement insights and trend analysis using ML.</p>
                     <div class="tech-stack">
                         <span>Python</span>
-                        <span>Go</span>
-                        <span>Vue.js</span>
-                        <span>Redis</span>
+                        <span>TensorFlow</span>
+                        <span>FastAPI</span>
+                        <span>Elasticsearch</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn">View Demo</a>
