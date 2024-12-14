@@ -68,6 +68,8 @@ The website follows a cyberpunk/hacker aesthetic with:
    - [ ] Implement project filtering by technology
    - [x] Add portfolio as first real project
    - [x] Add portfolio screenshot
+   - [x] Add 2048 game project
+   - [x] Remove placeholder projects
 
 6. **Contact Form**
    - [x] Create terminal-styled contact form
